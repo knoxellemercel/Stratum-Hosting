@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #0f1117;
+    --card: rgba(255,255,255,0.03);
+    --border: rgba(255,255,255,0.08);
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    background: var(--bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Inter, Arial, sans-serif;
+    position: relative;
+}
+
+
+.development-tag {
+    position: fixed;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255,255,255,0.45);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    width: min(90vw, 900px);
+    padding: 3rem 2rem;
+}
+
+
+.logo {
+    width: min(32vw, 220px);
+    max-width: 70vw;
+    height: auto;
+    user-select: none;
+    pointer-events: none;
+}
+
+
+.title {
+    color: #3583a6;
+    font-size: clamp(2.4rem, 7vw, 6rem);
+    font-weight: 800;
+    text-align: center;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    text-shadow: 0 10px 30px rgba(0,0,0,.3);
+}
+
+
+.progress-container {
+    width: min(520px, 75vw);
+    height: 9px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.progress-bar {
+    height: 100%;
+    width: 100%;
+    border-radius: 999px;
+    background: linear-gradient(
+        90deg,
+        #3583a6,
+        rgba(53,131,166,0.7)
+    );
+    transform-origin: left;
+    animation: loading 2.8s ease-in-out infinite alternate;
+    box-shadow:
+        0 0 18px rgba(53,131,166,0.30),
+        0 0 35px rgba(53,131,166,0.12);
+}
+
+@keyframes loading {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
+
+.footer {
+    position: fixed;
+    bottom: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255,255,255,0.30);
+    font-size: 0.68rem;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+    .container {
+        gap: 2rem;
+        padding: 2rem 1.2rem;
+    }
+
+    .logo {
+        width: min(45vw, 200px);
+    }
+
+    .title {
+        font-size: clamp(2rem, 8vw, 4.5rem);
+    }
+
+    .progress-container {
+        width: min(85vw, 420px);
+    }
+}
